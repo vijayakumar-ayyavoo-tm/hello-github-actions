@@ -18,4 +18,6 @@ jobs:
         with:
           java-version: 1.8
       - name: Build with Maven
-        run: mvn -v #mvn -B package --file pom.xml
+        run: mvn -v
+      - name: compile
+        run: mvn clean compile -DskipTests
