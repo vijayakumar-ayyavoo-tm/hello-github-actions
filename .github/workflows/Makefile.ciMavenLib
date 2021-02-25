@@ -1,0 +1,15 @@
+compile:
+	mvn -B clean compile -DskipTests
+
+unit-tests:
+	mvn -B test
+
+static-analysis:
+	$(call assert-set,SONAR_PASSWORD)
+	mvn -B sonar:sonar -Dsonar.login=$(SONAR_PASSWORD) $(ADDITIONAL_ARGS)
+
+package:
+	mvn -B package -DskipTests
+
+publish:
+	@echo "publish"
