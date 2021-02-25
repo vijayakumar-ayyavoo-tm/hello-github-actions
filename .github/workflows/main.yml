@@ -18,10 +18,13 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: 1.8
-      - run: mvn -v
-      - run: python --version
+      - run: | 
+          mvn -v
+          python --version
       - uses: actions/checkout@v1
-      - run: git pack-refs --all
-      - run: python gitVersionCalculator/calculateSemVersion.py
+      - run: |
+          git pack-refs --all
+          python gitVersionCalculator/calculateSemVersion.py > version.txt
+          cat version.txt
       - name: compile
         run: make -s compile #mvn -q clean compile -DskipTests
