@@ -25,6 +25,10 @@ jobs:
       - run: |
           git pack-refs --all
           python gitVersionCalculator/calculateSemVersion.py > version.txt
-          cat version.txt
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add .
+          git commit -m "version added"
+          git push
       - name: compile
         run: make -s compile #mvn -q clean compile -DskipTests
