@@ -24,7 +24,8 @@ jobs:
       - uses: actions/checkout@v1
       - run: |
           git pack-refs --all
-          python gitVersionCalculator/calculateSemVersion.py > version.txt
+          python gitVersionCalculator/calculateSemVersion.py > semver.txt
+      - run: echo -n -e "HELLO\n !\n WWWorld!" > version.txt
       - uses: pCYSl5EDgo/cat@master
         id: semver
         with:
