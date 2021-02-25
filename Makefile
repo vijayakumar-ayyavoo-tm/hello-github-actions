@@ -1,5 +1,5 @@
 compile:
-	mvn -B clean compile -DskipTests
+	mvn -B -q clean compile -DskipTests
 
 unit-tests:
 	mvn -B $(MVN_VERBOSE_ARGS) test
