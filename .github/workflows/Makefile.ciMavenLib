@@ -1,3 +1,4 @@
+
 compile:
 	mvn -B clean compile -DskipTests
 
