@@ -20,5 +20,4 @@ jobs:
       - name: Build with Maven
         run: mvn -v
       - name: compile
-        run: mvn -q clean compile -DskipTests
-      - run : make
+        run: make -s compile -f ./.github/workflows/MakeFile.ciMavenLib #mvn -q clean compile -DskipTests
