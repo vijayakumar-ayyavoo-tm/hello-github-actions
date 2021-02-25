@@ -20,4 +20,4 @@ jobs:
       - name: Build with Maven
         run: mvn -v
       - name: compile
-        run: make -s compile -f ./MakeFile.ciMavenLib #mvn -q clean compile -DskipTests
+        run: make -s compile -f ./action-a/MakeFile.ci #mvn -q clean compile -DskipTests
