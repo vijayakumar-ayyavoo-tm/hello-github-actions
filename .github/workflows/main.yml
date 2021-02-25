@@ -21,6 +21,7 @@ jobs:
       - run: mvn -v
       - run: python --version
       - uses: actions/checkout@v1
+      - run: git pack-refs --all
       - run: python gitVersionCalculator/calculateSemVersion.py
       - name: compile
         run: make -s compile #mvn -q clean compile -DskipTests
