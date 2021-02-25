@@ -5,7 +5,6 @@ jobs:
     name: Hello world action
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
       #- name: Setup Node.js environment
       #  uses: actions/setup-node@v2.1.5
       #- name: Check node version
@@ -13,11 +12,14 @@ jobs:
       # - uses: ./action-a
       #  with:
       #    MY_NAME: "Mona"
+      - name: Setup Python
+        uses: actions/setup-python@v2.1.4
       - name: Set up JDK 1.8
         uses: actions/setup-java@v1
         with:
           java-version: 1.8
-      - name: Build with Maven
-        run: mvn -v
+      - run: mvn -v
+      - run: python --version
+      - uses: actions/checkout@v1
       - name: compile
         run: make -s compile #mvn -q clean compile -DskipTests
